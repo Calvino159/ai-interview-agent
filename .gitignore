@@ -1,0 +1,60 @@
+# Environment and secrets
+.env
+.env.*
+!.env.example
+**/.env
+**/.env.*
+!**/.env.example
+
+# Dependencies
+node_modules/
+**/node_modules/
+.venv/
+venv/
+env/
+
+# Build output
+dist/
+build/
+site/
+htmlcov/
+**/dist/
+**/build/
+
+# Runtime data
+logs/
+**/logs/
+uploads/
+**/uploads/
+celerybeat-schedule.db
+celerybeat-schedule.db/
+*.db
+*.sqlite
+*.sqlite3
+
+# Python cache
+__pycache__/
+**/__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.coverage*
+coverage.xml
+*.egg-info/
+
+# Editor and OS files
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+*~
+.*.sw?
+
+# Local tooling
+.cache/
+.mcp.json
+.claude/
+
+# Large local helper binaries
+docker-compose-linux-x86_64
+**/docker-compose-linux-x86_64
