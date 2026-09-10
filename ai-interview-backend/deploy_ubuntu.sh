@@ -11,7 +11,7 @@ if [ ! -f ".env" ]; then
   cp .env.example .env
 fi
 
-if grep -Eq "sk-your-deepseek-key|sk-your-dashscope-key|your-deepseek-api-key" .env; then
+if grep -Eq "sk-your-llm-api-key|sk-your-deepseek-key|sk-your-dashscope-key|your-deepseek-api-key" .env; then
   echo "WARNING: .env still contains placeholder AI keys."
   echo "The backend can start, but resume parsing, RAG vectorization, AI scoring, and reports need real keys."
 fi
@@ -42,8 +42,9 @@ if ! command -v docker-compose >/dev/null 2>&1; then
   elif docker compose version >/dev/null 2>&1; then
     echo "Using docker compose plugin"
   else
-    echo "docker-compose is missing and bundled docker-compose-linux-x86_64 was not found."
-    exit 1
+    echo "Installing Docker Compose plugin"
+    sudo apt-get update
+    sudo apt-get install -y docker-compose-v2 || sudo apt-get install -y docker-compose-plugin
   fi
 fi
 
